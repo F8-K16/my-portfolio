@@ -1,4 +1,4 @@
-import { ButtonPrimary } from "./Button";
+import SectionLabel from "./SectionLabel";
 
 const sitemap = [
   {
@@ -8,6 +8,10 @@ const sitemap = [
   {
     label: "About",
     href: "#about",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
   },
   {
     label: "Work",
@@ -46,30 +50,79 @@ const Footer = () => {
   return (
     <footer className="section">
       <div className="container">
-        <div className="lg:grid lg:grid-cols-2">
-          <div className="mb-10">
-            <h2 className="headline-1 mb-8 lg:max-w-[12ch] reveal-up">
-              Let&apos;s work together today!
-            </h2>
+        <div className="relative mb-12 overflow-hidden rounded-3xl bg-zinc-800/50 p-7 ring-1 ring-inset ring-white/10 md:p-10 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-12 reveal-up">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-10 -top-16 h-48 w-48 rounded-full bg-sky-400/20 blur-3xl"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-20 left-10 h-40 w-40 rounded-full bg-sky-500/10 blur-3xl"
+          />
 
-            <ButtonPrimary
-              href="mailto:haovo.2606@gmail.com"
-              label="Start project"
-              icon="chevron_right"
-              classes="reveal-up"
-            />
+          <div className="relative mb-8 lg:mb-0">
+            <SectionLabel icon="celebration">Next step</SectionLabel>
+            <h2 className="headline-1 mb-4 max-w-[14ch]">
+              Let&apos;s build something{" "}
+              <span className="headline-accent">together</span>
+            </h2>
+            <p className="max-w-[42ch] text-sm leading-relaxed text-zinc-400 md:text-base">
+              Tell me about your idea, and we can start from a short message or
+              a quick email.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 lg:pl-20">
-            <div>
-              <p className="mb-2 reveal-up">Sitemap</p>
-              <ul>
-                {sitemap.map(({ label, href }, key) => (
-                  <li key={key}>
+          <div className="relative flex flex-col items-start gap-4 lg:items-end">
+            <a href="#contact" className="btn-cta group">
+              <span className="btn-cta-glow" aria-hidden="true" />
+              <span className="relative grid h-10 w-10 place-items-center rounded-full bg-zinc-950/15">
+                <span className="material-symbols-rounded text-[22px]">
+                  mail
+                </span>
+              </span>
+              <span className="relative">Start a project</span>
+              <span
+                className="material-symbols-rounded relative transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              >
+                arrow_outward
+              </span>
+            </a>
+
+            <a
+              href="mailto:haovo.2606@gmail.com"
+              className="inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-sky-300"
+            >
+              <span className="material-symbols-rounded text-[18px]">
+                alternate_email
+              </span>
+              haovo.2606@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div className="reveal-up mb-10 overflow-hidden rounded-2xl bg-zinc-800/40 ring-1 ring-inset ring-white/10">
+          <div className="grid md:grid-cols-2">
+            <div className="border-b border-white/5 p-6 md:border-b-0 md:border-r md:p-8">
+              <p className="mb-4 flex items-center gap-2 text-sm font-medium text-zinc-200">
+                <span className="icon-chip">
+                  <span className="material-symbols-rounded">map</span>
+                </span>
+                Sitemap
+              </p>
+              <ul className="grid gap-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-6">
+                {sitemap.map(({ label, href }) => (
+                  <li key={label}>
                     <a
                       href={href}
-                      className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200 reveal-up"
+                      className="group flex items-center gap-2 rounded-lg py-2 text-sm text-zinc-400 transition-colors hover:text-sky-300"
                     >
+                      <span
+                        className="material-symbols-rounded text-[16px] text-zinc-600 transition-colors group-hover:text-sky-400"
+                        aria-hidden="true"
+                      >
+                        chevron_right
+                      </span>
                       {label}
                     </a>
                   </li>
@@ -77,16 +130,28 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
-              <p className="mb-2 reveal-up">Socials</p>
-              <ul>
-                {socials.map(({ label, href }, key) => (
-                  <li key={key}>
+            <div className="p-6 md:p-8">
+              <p className="mb-4 flex items-center gap-2 text-sm font-medium text-zinc-200">
+                <span className="icon-chip">
+                  <span className="material-symbols-rounded">share</span>
+                </span>
+                Socials
+              </p>
+              <ul className="grid gap-1 sm:grid-cols-2">
+                {socials.map(({ label, href }) => (
+                  <li key={label}>
                     <a
                       href={href}
                       target="_blank"
-                      className="block text-sm text-zinc-400 py-1 transition-colors hover:text-zinc-200 reveal-up"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 rounded-lg py-2 text-sm text-zinc-400 transition-colors hover:text-sky-300"
                     >
+                      <span
+                        className="material-symbols-rounded text-[16px] text-zinc-600 transition-colors group-hover:text-sky-400"
+                        aria-hidden="true"
+                      >
+                        open_in_new
+                      </span>
                       {label}
                     </a>
                   </li>
@@ -96,8 +161,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between pt-10 mb-8">
-          <a href="/" className="logo reveal-up">
+        <div className="mb-8 flex items-center justify-between border-t border-white/5 pt-8">
+          <a href="#home" className="logo reveal-up">
             <img
               src="images/logo.png"
               width={40}
@@ -107,8 +172,8 @@ const Footer = () => {
             />
           </a>
 
-          <p className="text-zinc-500 text-sm reveal-up">
-            &copy; 2025 <span className="text-zinc-200">codewithme</span>
+          <p className="text-sm text-zinc-500 reveal-up">
+            &copy; 2026 <span className="text-zinc-200">Hao Vo</span>
           </p>
         </div>
       </div>

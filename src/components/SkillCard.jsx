@@ -4,12 +4,18 @@ export default function SkillCard({ imgSrc, label, desc, classes }) {
   return (
     <div
       className={
-        "flex items-center gap-3 ring-2 ring-inset ring-zinc-50/10 rounded-2xl p-3 hover:bg-zinc-800 transition-colors group " +
+        "group flex items-center gap-3 rounded-2xl p-3 ring-2 ring-inset ring-zinc-50/10 transition-[background-color,box-shadow] hover:bg-zinc-800/80 hover:ring-sky-400/40 " +
         classes
       }
     >
-      <figure className="bg-zinc-700/50 rounded-lg overflow-hidden w-12 h-12 p-2 group-hover:bg-zinc-900 transition-colors">
-        <img src={imgSrc} alt={label} width={32} height={32} />
+      <figure className="grid h-12 w-12 place-items-center overflow-hidden rounded-lg bg-zinc-700/50 p-2 transition-[background-color,transform] group-hover:scale-105 group-hover:bg-zinc-900">
+        <img
+          src={imgSrc}
+          alt={label}
+          width={32}
+          height={32}
+          className="transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110"
+        />
       </figure>
 
       <div>
@@ -21,7 +27,7 @@ export default function SkillCard({ imgSrc, label, desc, classes }) {
   );
 }
 
-SkillCard.PropTypes = {
+SkillCard.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,

@@ -23,8 +23,11 @@ export default function Navbar({ navOpen }) {
     activeBox.current.style.height = e.target.offsetHeight + "px";
   };
 
-  useEffect(initActiveBox, []);
-  window.addEventListener("resize", initActiveBox);
+  useEffect(() => {
+    initActiveBox();
+    window.addEventListener("resize", initActiveBox);
+    return () => window.removeEventListener("resize", initActiveBox);
+  }, []);
 
   const navItems = [
     {
@@ -36,6 +39,11 @@ export default function Navbar({ navOpen }) {
     {
       label: "About",
       link: "#about",
+      className: "nav-link",
+    },
+    {
+      label: "Skills",
+      link: "#skills",
       className: "nav-link",
     },
     {
@@ -67,6 +75,6 @@ export default function Navbar({ navOpen }) {
   );
 }
 
-Navbar.PropTypes = {
+Navbar.propTypes = {
   navOpen: PropTypes.bool.isRequired,
 };

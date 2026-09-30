@@ -1,3 +1,5 @@
+import SectionLabel from "./SectionLabel";
+
 const socialLinks = [
   {
     href: "#!",
@@ -78,8 +80,11 @@ export default function Contact() {
     <section id="contact" className="section">
       <div className="container lg:grid lg:grid-cols-2 lg:items-stretch">
         <div className="mb-12 lg:mb-0 lg:flex lg:flex-col">
+          <SectionLabel icon="forum" className="reveal-up">
+            04 — Contact
+          </SectionLabel>
           <h2 className="headline-2 lg:max-w-[12ch] reveal-up">
-            Contact me for collaboration
+            Contact me
           </h2>
           <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch] lg:max-w-[30ch] reveal-up">
             Reach out today to discuss your project needs and start
@@ -87,12 +92,14 @@ export default function Contact() {
           </p>
 
           <div className="flex items-center gap-2 mt-auto">
-            {socialLinks.map(({ href, icon }, key) => (
+            {socialLinks.map(({ href, icon, alt }, key) => (
               <a
                 key={key}
                 href={href}
                 target="_blank"
-                className="w-12 h-12 grid place-items-center ring-inset ring-2 ring-zinc-50/5 rounded-lg transition-[background-color,color] hover:bg-zinc-50 hover:text-zinc-900 active:bg-zinc-50/8 reveal-up"
+                rel="noopener noreferrer"
+                aria-label={alt}
+                className="social-icon-btn reveal-up"
               >
                 {icon}
               </a>
@@ -128,7 +135,7 @@ export default function Contact() {
               </label>
 
               <input
-                type="text"
+                type="email"
                 name="email"
                 id="email"
                 autoComplete="email"
@@ -155,9 +162,12 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="btn btn-primary [&]:max-w-full w-full justify-center reveal-up"
+            className="btn btn-primary w-full max-w-full justify-center reveal-up"
           >
-            Submit
+            Send message
+            <span className="material-symbols-rounded" aria-hidden="true">
+              send
+            </span>
           </button>
         </form>
       </div>

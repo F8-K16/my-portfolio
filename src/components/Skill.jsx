@@ -1,4 +1,6 @@
 import SkillCard from "./SkillCard";
+import SectionLabel from "./SectionLabel";
+import TechTicker from "./TechTicker";
 
 const skillItem = [
   {
@@ -27,6 +29,11 @@ const skillItem = [
     desc: "Web Server",
   },
   {
+    imgSrc: "/images/express.svg",
+    label: "Express.js",
+    desc: "Web framework",
+  },
+  {
     imgSrc: "/images/mysql.svg",
     label: "MySQL",
     desc: "Database",
@@ -37,23 +44,43 @@ const skillItem = [
     desc: "Framework",
   },
   {
+    imgSrc: "/images/nextjs.svg",
+    label: "Next.js",
+    desc: "React framework",
+  },
+  {
     imgSrc: "/images/tailwindcss.svg",
     label: "TailwindCSS",
     desc: "User Interface",
+  },
+  {
+    imgSrc: "/images/docker.svg",
+    label: "Docker",
+    desc: "Containers",
+  },
+  {
+    imgSrc: "/images/github.svg",
+    label: "GitHub",
+    desc: "Version control",
   },
 ];
 
 export default function Skill() {
   return (
-    <section className="section">
+    <section id="skills" className="section">
       <div className="container">
-        <h2 className="headline-2 reveal-up">Essential Tools I use</h2>
-        <p className="text-zinc-400 mt-3 mb-8 max-w-[50ch]">
-          Discover the powerful tools and technologies I use to create
-          exceptional, high-performing websites & applications.
+        <SectionLabel icon="handyman" className="reveal-up">
+          02 — Toolkit
+        </SectionLabel>
+        <h2 className="headline-2 reveal-up">Essential tools I use</h2>
+        <p className="text-zinc-400 mt-3 mb-6 max-w-[50ch] reveal-up">
+          The stack I use to design interfaces and ship full-stack
+          applications.
         </p>
 
-        <div className="grid gap-3 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
+        <TechTicker />
+
+        <div className="mt-8 grid gap-3 grid-cols-[repeat(auto-fill,minmax(250px,1fr))]">
           {skillItem.map(({ imgSrc, label, desc }, key) => (
             <SkillCard
               key={key}

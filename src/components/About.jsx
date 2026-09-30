@@ -1,11 +1,15 @@
+import SectionLabel from "./SectionLabel";
+
 const aboutItems = [
   {
     label: "Project done",
     number: 3,
+    icon: "rocket_launch",
   },
   {
     label: "Years of experience",
     number: 1,
+    icon: "schedule",
   },
 ];
 
@@ -13,9 +17,14 @@ export default function About() {
   return (
     <section id="about" className="section">
       <div className="container">
-        <div className="bg-zinc-800/50 p-7 rounded-2xl md:p-12 reveal-up">
-          <p className="text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
-            Welcome! I&apos;m Hao, who aspiring Full-Stack Developer with a
+        <div className="relative overflow-hidden rounded-2xl bg-zinc-800/40 p-7 ring-1 ring-inset ring-white/10 md:p-12 reveal-up">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-16 -right-16 h-48 w-48 rounded-full bg-sky-400/15 blur-3xl"
+          />
+          <SectionLabel icon="person">01 — About</SectionLabel>
+          <p className="relative text-zinc-300 mb-4 md:mb-8 md:text-xl md:max-w-[60ch]">
+            Welcome! I&apos;m Hao, an aspiring Full-Stack Developer with a
             strong interest in building modern web applications. My current
             focus is on Front-End development, where I enjoy creating
             responsive, intuitive, and user-friendly interfaces. At the same
@@ -26,7 +35,7 @@ export default function About() {
           </p>
 
           <div className="flex flex-wrap items-center gap-4 md:gap-7">
-            {aboutItems.map(({ label, number }, key) => (
+            {aboutItems.map(({ label, number, icon }, key) => (
               <div key={key}>
                 <div className="flex items-center md:mb-2">
                   <span className="text-2xl font-semibold md:text-4xl">
@@ -37,7 +46,12 @@ export default function About() {
                   </span>
                 </div>
 
-                <p className="text-sm text-zinc-400">{label}</p>
+                <p className="flex items-center gap-1.5 text-sm text-zinc-400">
+                  <span className="material-symbols-rounded text-sky-400 text-[16px]">
+                    {icon}
+                  </span>
+                  {label}
+                </p>
               </div>
             ))}
 
