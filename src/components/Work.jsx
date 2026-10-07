@@ -3,12 +3,12 @@ import SectionLabel from "./SectionLabel";
 
 const works = [
   {
-    imgSrc: "/images/project-topcv.png",
+    imgSrc: "/images/project-3.png",
     title: "TopCV",
     tags: ["Next.js", "Express.js", "Full-Stack"],
     description:
       "A hiring platform with job search, CV tools, employer workflows, and an admin dashboard.",
-    projectLink: "https://github.com/F8-K16/nextjs-topcv",
+    projectLink: "https://nextcv.io.vn",
     featured: true,
   },
   {
@@ -25,7 +25,7 @@ const works = [
     tags: ["API", "SPA", "Web-design"],
     description:
       "A photo feed with sign-up, search, explore, comments, saved posts, messages, and notifications.",
-    projectLink: "https://prj-module3.vercel.app/",
+    projectLink: "https://prj-module3.vercel.app",
   },
 ];
 
